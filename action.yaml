@@ -1,4 +1,4 @@
-name: "hello-world-docker-action"
+name: "fa-action"
 description: "Greet someone and record the time"
 branding:
   icon: "bell"
