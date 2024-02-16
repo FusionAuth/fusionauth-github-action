@@ -1,0 +1,58 @@
+name: "hello-world-docker-action"
+description: "Greet someone and record the time"
+branding:
+  icon: "bell"
+  color: "red"
+inputs:
+  who-to-greet:
+    description: "Who to greet"
+    required: true
+    default: "World"
+outputs:
+  time:
+    description: "The time we greeted you"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.who-to-greet }}
+
+# name: 'Start FusionAuth'
+# description: 'Starts FusionAuth using Docker Compose'
+# inputs:
+#   postgres_user:
+#     description: 'Postgres User'
+#     required: true
+#   postgres_password:
+#     description: 'Postgres Password'
+#     required: true
+#   opensearch_java_opts:
+#     description: 'OpenSearch Java Options'
+#     required: false
+#   database_username:
+#     description: 'Database Username'
+#     required: true
+#   database_password:
+#     description: 'Database Password'
+#     required: true
+#   fusionauth_app_memory:
+#     description: 'FusionAuth App Memory'
+#     required: false
+#   fusionauth_app_runtime_mode:
+#     description: 'FusionAuth App Runtime Mode'
+#     required: false
+#   fusionauth_app_kickstart_file:
+#     description: 'FusionAuth App Kickstart File'
+#     required: false
+# runs:
+#   using: 'docker'
+#   image: 'Dockerfile'
+#   args:
+#     - ${{ inputs.postgres_user }}
+#     - ${{ inputs.postgres_password }}
+#     - ${{ inputs.opensearch_java_opts }}
+#     - ${{ inputs.database_username }}
+#     - ${{ inputs.database_password }}
+#     - ${{ inputs.fusionauth_app_memory }}
+#     - ${{ inputs.fusionauth_app_runtime_mode }}
+#     - ${{ inputs.fusionauth_app_kickstart_file }}
