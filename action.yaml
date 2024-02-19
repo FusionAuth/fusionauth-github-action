@@ -25,6 +25,7 @@ runs:
   steps:
     - name: Start FusionAuth
       run: docker-compose up -d # -d in background
+      shell: bash
       env:
         POSTGRES_USER: ${{ inputs.POSTGRES_USER }}
         POSTGRES_PASSWORD: ${{ inputs.POSTGRES_PASSWORD }}
