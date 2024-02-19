@@ -10,7 +10,7 @@ services:
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U postgres" ]
       interval: 5s
-      timeout: 5s
+      timeout: 25s
       retries: 5
     networks:
       - db_net
@@ -29,6 +29,7 @@ services:
       OPENSEARCH_JAVA_OPTS: ${OPENSEARCH_JAVA_OPTS}
     healthcheck:
       interval: 10s
+      timeout: 25s
       retries: 80
       test: curl --write-out 'HTTP %{http_code}' --fail --silent --output /dev/null http://localhost:9200/
     restart: unless-stopped
