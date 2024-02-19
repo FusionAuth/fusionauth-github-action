@@ -17,7 +17,7 @@ services:
     restart: unless-stopped
     volumes:
       - db_data:/var/lib/postgresql/data
-  
+
   search:
     image: opensearchproject/opensearch:2.11.0
     environment:
@@ -46,9 +46,9 @@ services:
       - search_data:/usr/share/opensearch/data
     networks:
       - search_net
-  
+
   fusionauth:
-    image: fusionauth/fusionauth-app:1.48.3 # 1.47.1 - 1.48.3 - latest
+    image: fusionauth/fusionauth-app:1.48.3
     depends_on:
       db:
         condition: service_healthy
