@@ -1,8 +1,8 @@
 name: "fa-action"
 description: "Greet someone and record the time"
 branding:
-  icon: "bell"
-  color: "red"
+  icon: "user-check"
+  color: "blue"
 inputs:
   who-to-greet:
     description: "Who to greet"
