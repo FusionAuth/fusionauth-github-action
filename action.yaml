@@ -29,6 +29,8 @@ runs:
         repository: 'mordavia/fusionauth_github_marketplace_action'
         path: 'faDockerComposeFilePath'
 
+# todo: try just start db, then search, then fa alone. try run fa locally without search. then try in github.
+
     # - name: Start FusionAuth
     #   run: docker-compose -f faDockerComposeFilePath/docker-compose.yaml up -d # -d in background
     #   shell: bash
