@@ -48,11 +48,24 @@ runs:
       env:
         POSTGRES_USER: ${{ inputs.POSTGRES_USER }}
         POSTGRES_PASSWORD: ${{ inputs.POSTGRES_PASSWORD }}
+        DATABASE_USERNAME: ${{ inputs.DATABASE_USERNAME }}
+        DATABASE_PASSWORD: ${{ inputs.DATABASE_PASSWORD }}
+        FUSIONAUTH_APP_MEMORY: ${{ inputs.FUSIONAUTH_APP_MEMORY }}
+        FUSIONAUTH_APP_RUNTIME_MODE: ${{ inputs.FUSIONAUTH_APP_RUNTIME_MODE }}
+        FUSIONAUTH_APP_KICKSTART_FILE: ${{ inputs.FUSIONAUTH_APP_KICKSTART_FILE }}
+        OPENSEARCH_JAVA_OPTS: ${{ inputs.OPENSEARCH_JAVA_OPTS }}
 
     - name: Start Search
       run: docker-compose -f faDockerComposeFilePath/docker-compose.yaml up -d search
       shell: bash
       env:
+        POSTGRES_USER: ${{ inputs.POSTGRES_USER }}
+        POSTGRES_PASSWORD: ${{ inputs.POSTGRES_PASSWORD }}
+        DATABASE_USERNAME: ${{ inputs.DATABASE_USERNAME }}
+        DATABASE_PASSWORD: ${{ inputs.DATABASE_PASSWORD }}
+        FUSIONAUTH_APP_MEMORY: ${{ inputs.FUSIONAUTH_APP_MEMORY }}
+        FUSIONAUTH_APP_RUNTIME_MODE: ${{ inputs.FUSIONAUTH_APP_RUNTIME_MODE }}
+        FUSIONAUTH_APP_KICKSTART_FILE: ${{ inputs.FUSIONAUTH_APP_KICKSTART_FILE }}
         OPENSEARCH_JAVA_OPTS: ${{ inputs.OPENSEARCH_JAVA_OPTS }}
 
     - name: Start FusionAuth
