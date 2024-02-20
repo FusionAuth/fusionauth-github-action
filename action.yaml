@@ -34,7 +34,7 @@ runs:
     # - name: Start FusionAuth
     #   run: docker-compose -f faDockerComposeFilePath/docker-compose.yaml up -d # -d in background
     #   shell: bash
-        # working-directory: faDockerComposeFilePath
+        #NO working-directory: faDockerComposeFilePath
     #   env:
     #     POSTGRES_USER: ${{ inputs.POSTGRES_USER }}
     #     POSTGRES_PASSWORD: ${{ inputs.POSTGRES_PASSWORD }}
@@ -48,7 +48,6 @@ runs:
     - name: Start DB
       run: docker-compose -f faDockerComposeFilePath/docker-compose.yaml up -d db
       shell: bash
-      working-directory: faDockerComposeFilePath
       env:
         POSTGRES_USER: ${{ inputs.POSTGRES_USER }}
         POSTGRES_PASSWORD: ${{ inputs.POSTGRES_PASSWORD }}
@@ -62,7 +61,6 @@ runs:
     - name: Start Search
       run: docker-compose -f faDockerComposeFilePath/docker-compose.yaml up -d search
       shell: bash
-      working-directory: faDockerComposeFilePath
       env:
         POSTGRES_USER: ${{ inputs.POSTGRES_USER }}
         POSTGRES_PASSWORD: ${{ inputs.POSTGRES_PASSWORD }}
@@ -76,7 +74,6 @@ runs:
     # - name: Start FusionAuth
     #   run: docker-compose -f faDockerComposeFilePath/docker-compose.yaml up -d fusionauth
     #   shell: bash
-        # working-directory: faDockerComposeFilePath
     #   env:
     #     POSTGRES_USER: ${{ inputs.POSTGRES_USER }}
     #     POSTGRES_PASSWORD: ${{ inputs.POSTGRES_PASSWORD }}
