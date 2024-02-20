@@ -46,8 +46,9 @@ runs:
     #     OPENSEARCH_JAVA_OPTS: ${{ inputs.OPENSEARCH_JAVA_OPTS }}
 
     - name: Start DB
-      run: docker-compose -f faDockerComposeFilePath/docker-compose.yaml up -d db
+      run: docker-compose up -d db
       shell: bash
+      working-directory: faDockerComposeFilePath
       env:
         POSTGRES_USER: ${{ inputs.POSTGRES_USER }}
         POSTGRES_PASSWORD: ${{ inputs.POSTGRES_PASSWORD }}
@@ -59,8 +60,9 @@ runs:
         OPENSEARCH_JAVA_OPTS: ${{ inputs.OPENSEARCH_JAVA_OPTS }}
 
     - name: Start Search
-      run: docker-compose -f faDockerComposeFilePath/docker-compose.yaml up -d search
+      run: docker-compose up -d search
       shell: bash
+      working-directory: faDockerComposeFilePath
       env:
         POSTGRES_USER: ${{ inputs.POSTGRES_USER }}
         POSTGRES_PASSWORD: ${{ inputs.POSTGRES_PASSWORD }}
@@ -74,6 +76,7 @@ runs:
     # - name: Start FusionAuth
     #   run: docker-compose -f faDockerComposeFilePath/docker-compose.yaml up -d fusionauth
     #   shell: bash
+        # working-directory: faDockerComposeFilePath
     #   env:
     #     POSTGRES_USER: ${{ inputs.POSTGRES_USER }}
     #     POSTGRES_PASSWORD: ${{ inputs.POSTGRES_PASSWORD }}
