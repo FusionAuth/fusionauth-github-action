@@ -1,5 +1,3 @@
-# Test with: ./act -P ubuntu-22.04=-self-hosted -s GITHUB_TOKEN=your_token_here push
-
 name: "fa-action"
 description: "Run FusionAuth for testing your application in a GitHub workflow"
 branding:
@@ -33,7 +31,6 @@ runs:
 
     - name: Start FusionAuth
       run: docker compose up -d # -d in background
-      # -f faDockerComposeFilePath/docker-compose.yaml
       shell: bash
       working-directory: faDockerComposeFilePath
       env:
@@ -45,6 +42,8 @@ runs:
         FUSIONAUTH_APP_RUNTIME_MODE: ${{ inputs.FUSIONAUTH_APP_RUNTIME_MODE }}
         FUSIONAUTH_APP_KICKSTART_FILE: ${{ inputs.FUSIONAUTH_APP_KICKSTART_FILE }}
         OPENSEARCH_JAVA_OPTS: ${{ inputs.OPENSEARCH_JAVA_OPTS }}
+
+# Start each service individually for testing instead:
 
     # - name: Start DB
     #   run: docker-compose up -d db
