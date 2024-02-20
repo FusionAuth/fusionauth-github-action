@@ -3,6 +3,8 @@ INSTRUCTIONS FOR FUSIONAUTH TO PUBLISH:
 - replace mordavia with fusionauth below
 - change the name in the action.yaml file to fusionauth
 - change the repository name in the action.yaml file to whatever you call it
+- delete this text
+- in the repository home page, click 'publish to marketplace'
 
 # FusionAuth GitHub Marketplace Action
 
