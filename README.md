@@ -69,7 +69,7 @@ jobs:
 
       - name: Start FusionAuth
         uses: mordavia/fusionauth_github_marketplace_action@main
-        #uses: actions/hello-world-docker-action@v1
+        #uses: mordavia/fusionauth_github_marketplace_action@v1
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
