@@ -1,3 +1,5 @@
+# Test with: ./act -P ubuntu-22.04=-self-hosted -s GITHUB_TOKEN=your_token_here push
+
 name: "fa-action"
 description: "Run FusionAuth for testing your application in a GitHub workflow"
 branding:
@@ -30,7 +32,7 @@ runs:
         path: 'faDockerComposeFilePath'
 
     - name: Start FusionAuth
-      run: docker-compose up -d # -d in background
+      run: docker compose up -d # -d in background
       # -f faDockerComposeFilePath/docker-compose.yaml
       shell: bash
       working-directory: faDockerComposeFilePath
