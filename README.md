@@ -1,11 +1,3 @@
-INSTRUCTIONS FOR FUSIONAUTH TO PUBLISH:
-- fork this repository
-- replace fusionauth with fusionauth below
-- change the name in the action.yaml file to fusionauth
-- change the repository name in the action.yaml file to whatever you call it
-- delete this text
-- in the repository home page, click 'publish to marketplace'
-
 # FusionAuth GitHub Marketplace Action
 
 This Action allows you to run FusionAuth in your GitHub workflows.
