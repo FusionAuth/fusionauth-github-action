@@ -1,6 +1,6 @@
 INSTRUCTIONS FOR FUSIONAUTH TO PUBLISH:
 - fork this repository
-- replace mordavia with fusionauth below
+- replace fusionauth with fusionauth below
 - change the name in the action.yaml file to fusionauth
 - change the repository name in the action.yaml file to whatever you call it
 - delete this text
@@ -68,8 +68,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Start FusionAuth
-        uses: mordavia/fusionauth_github_marketplace_action@main
-        #uses: mordavia/fusionauth_github_marketplace_action@v1
+        uses: fusionauth/fusionauth-github-action@main
+        #uses: fusionauth/fusionauth-github-action@v1
 
       - name: Set up Node.js
         uses: actions/setup-node@v4

@@ -26,7 +26,7 @@ runs:
     - name: Get docker-compose.yaml
       uses: actions/checkout@v4
       with:
-        repository: 'mordavia/fusionauth_github_marketplace_action'
+        repository: 'fusionauth/fusionauth-github-action'
         path: 'faDockerComposeFilePath'
 
     - name: Start FusionAuth
