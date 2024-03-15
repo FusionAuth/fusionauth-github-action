@@ -50,7 +50,7 @@ services:
   #     - search_net
 
   fusionauth:
-    image: fusionauth/fusionauth-app:1.48.3
+    image: fusionauth/fusionauth-app:${FUSIONAUTH_VERSION}
     container_name: fa
     depends_on:
       db:

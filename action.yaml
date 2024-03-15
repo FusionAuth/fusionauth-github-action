@@ -4,21 +4,32 @@ branding:
   icon: "user-check"
   color: "blue"
 inputs:
+  FUSIONAUTH_VERSION:
+    description: "FusionAuth version number"
+    default: "latest"
   DATABASE_USERNAME:
+    description: "Database username used by FusionAuth"
     default: fusionauth
   DATABASE_PASSWORD:
+    description: "Database password used by FusionAuth"
     default: hkaLBM3RVnyYeYeqE3WI1w2e4Avpy0Wd5O3s3
   FUSIONAUTH_APP_KICKSTART_FILE:
+    description: "Kickstart file location"
     default: /usr/local/fusionauth/kickstart/kickstart.json
   FUSIONAUTH_APP_MEMORY:
+    description: "FusionAuth application memory"
     default: 512M
   FUSIONAUTH_APP_RUNTIME_MODE:
+    description: "FusionAuth application runtime mode"
     default: development
   OPENSEARCH_JAVA_OPTS:
+    description: "Opensearch configuration"
     default: '"-Xms512m -Xmx512m"'
   POSTGRES_USER:
+    description: "Postgres default user"
     default: postgres
   POSTGRES_PASSWORD:
+    description: "Postgres default password"
     default: postgres
 runs:
   using: "composite"
@@ -42,6 +53,7 @@ runs:
         FUSIONAUTH_APP_RUNTIME_MODE: ${{ inputs.FUSIONAUTH_APP_RUNTIME_MODE }}
         FUSIONAUTH_APP_KICKSTART_FILE: ${{ inputs.FUSIONAUTH_APP_KICKSTART_FILE }}
         OPENSEARCH_JAVA_OPTS: ${{ inputs.OPENSEARCH_JAVA_OPTS }}
+        FUSIONAUTH_VERSION: ${{ inputs.FUSIONAUTH_VERSION }}
 
 # Start each service individually for testing instead:
 
@@ -58,6 +70,7 @@ runs:
     #     FUSIONAUTH_APP_RUNTIME_MODE: ${{ inputs.FUSIONAUTH_APP_RUNTIME_MODE }}
     #     FUSIONAUTH_APP_KICKSTART_FILE: ${{ inputs.FUSIONAUTH_APP_KICKSTART_FILE }}
     #     OPENSEARCH_JAVA_OPTS: ${{ inputs.OPENSEARCH_JAVA_OPTS }}
+    #     FUSIONAUTH_VERSION: ${{ inputs.FUSIONAUTH_VERSION }}
 
     # - name: Start Search
     #   run: docker-compose up -d search
@@ -72,6 +85,7 @@ runs:
     #     FUSIONAUTH_APP_RUNTIME_MODE: ${{ inputs.FUSIONAUTH_APP_RUNTIME_MODE }}
     #     FUSIONAUTH_APP_KICKSTART_FILE: ${{ inputs.FUSIONAUTH_APP_KICKSTART_FILE }}
     #     OPENSEARCH_JAVA_OPTS: ${{ inputs.OPENSEARCH_JAVA_OPTS }}
+    #     FUSIONAUTH_VERSION: ${{ inputs.FUSIONAUTH_VERSION }}
 
     # - name: Start FusionAuth
     #   run: docker-compose up -d fusionauth # -f faDockerComposeFilePath/docker-compose.yaml
@@ -86,3 +100,4 @@ runs:
     #     FUSIONAUTH_APP_RUNTIME_MODE: ${{ inputs.FUSIONAUTH_APP_RUNTIME_MODE }}
     #     FUSIONAUTH_APP_KICKSTART_FILE: ${{ inputs.FUSIONAUTH_APP_KICKSTART_FILE }}
     #     OPENSEARCH_JAVA_OPTS: ${{ inputs.OPENSEARCH_JAVA_OPTS }}
+    #     FUSIONAUTH_VERSION: ${{ inputs.FUSIONAUTH_VERSION }}
