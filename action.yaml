@@ -1,4 +1,4 @@
-name: "fa-action"
+name: "fusionauth-action"
 description: "Run FusionAuth for testing your application in a GitHub workflow"
 branding:
   icon: "user-check"
