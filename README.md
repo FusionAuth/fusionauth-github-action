@@ -8,9 +8,11 @@ This Action uses PostgreSQL database search for user search functionality, not E
 
 ## Inputs
 
-No inputs are required. You shouldn't need to change any of the values below.
+You can optionally supply the FusionAuth version number (defaults to `1.48.3`) you want to use otherwise you shouldn't need to change any of the values below.
 
 ```yaml
+  FUSIONAUTH_VERSION:
+    default: "1.48.3"
   DATABASE_USERNAME:
     default: fusionauth
   DATABASE_PASSWORD:
@@ -62,6 +64,8 @@ jobs:
       - name: Start FusionAuth
         uses: fusionauth/fusionauth-github-action@main
         #uses: fusionauth/fusionauth-github-action@v1
+        with:
+          FUSIONAUTH_VERSION: "1.48.3" # Optional: provide FusionAuth version number otherwise it defaults to 1.48.3
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
