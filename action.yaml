@@ -6,7 +6,7 @@ branding:
 inputs:
   FUSIONAUTH_VERSION:
     description: "FusionAuth version number"
-    default: "1.48.3"
+    default: "latest"
   DATABASE_USERNAME:
     description: "Database username used by FusionAuth"
     default: fusionauth
