@@ -8,7 +8,9 @@ This Action uses PostgreSQL database search for user search functionality, not E
 
 ## Inputs
 
-You can optionally supply the FusionAuth version number (defaults to `latest`) you want to use otherwise you shouldn't need to change any of the values below.
+You can optionally supply the FusionAuth version number you want to use (defaults to `latest`). When using this in a CI/CD system, you should set the version to whatever version of FusionAuth you are using in production.
+
+Otherwise you shouldn't need to change any of the values below.
 
 ```yaml
   FUSIONAUTH_VERSION:
