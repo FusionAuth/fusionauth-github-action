@@ -10,6 +10,15 @@ This Action uses PostgreSQL database search for user search functionality, not E
 
 You can optionally supply the FusionAuth version number you want to use (defaults to `latest`). When using this in a CI/CD system, you should set the version to whatever version of FusionAuth you are using in production.
 
+The `FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH` directory in your checkout directory will be copied into the FusionAuth directory and executed as a kickstart. This directory must include a valid `kickstart.json` file as well as any included files. mounted to the `/usr/local/fusionauth/kickstart`. If your file is not named `kickstart.json`, you'll need to update `FUSIONAUTH_APP_KICKSTART_FILENAME`. For example, if your kickstart file is named `kickstart-02.json` and all your kickstart files live in `./myks/`, you'd have to add this input:
+
+```
+FUSIONAUTH_APP_KICKSTART_FILENAME: kickstart-02.json
+FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH: myks
+```
+
+[Learn more about kickstart](https://fusionauth.io/docs/get-started/download-and-install/development/kickstart).
+
 Otherwise you shouldn't need to change any of the values below.
 
 ```yaml
@@ -19,8 +28,10 @@ Otherwise you shouldn't need to change any of the values below.
     default: fusionauth
   DATABASE_PASSWORD:
     default: hkaLBM3RVnyYeYeqE3WI1w2e4Avpy0Wd5O3s3
-  FUSIONAUTH_APP_KICKSTART_FILE:
-    default: /usr/local/fusionauth/kickstart/kickstart.json
+  FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH:
+    default: ''
+  FUSIONAUTH_APP_KICKSTART_FILENAME:
+    default: kickstart.json
   FUSIONAUTH_APP_MEMORY:
     default: 512M
   FUSIONAUTH_APP_RUNTIME_MODE:

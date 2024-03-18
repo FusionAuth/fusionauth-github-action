@@ -13,9 +13,12 @@ inputs:
   DATABASE_PASSWORD:
     description: "Database password used by FusionAuth"
     default: hkaLBM3RVnyYeYeqE3WI1w2e4Avpy0Wd5O3s3
-  FUSIONAUTH_APP_KICKSTART_FILE:
-    description: "Kickstart file location"
-    default: /usr/local/fusionauth/kickstart/kickstart.json
+  FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH:
+    description: "Where your kickstart file and related include files live, relative to the checked out directory. If not provided, a default kickstart will be used."
+    default: 
+  FUSIONAUTH_APP_KICKSTART_FILENAME:
+    description: "The name of your kickstart file in FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH, otherwise this is ignored."
+    default: "kickstart.json"
   FUSIONAUTH_APP_MEMORY:
     description: "FusionAuth application memory"
     default: 512M
@@ -40,6 +43,14 @@ runs:
         repository: 'fusionauth/fusionauth-github-action'
         path: 'faDockerComposeFilePath'
 
+    - name: Process kickstart inputs
+      run: scripts/copy-kickstart.sh
+      working-directory: faDockerComposeFilePath
+      env:
+        FUSIONAUTH_APP_KICKSTART_FILENAME: ${{ inputs.FUSIONAUTH_APP_KICKSTART_FILENAME }}
+        FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH: ${{ inputs.FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH }}
+        GH_WORKSPACE_PATH: ${{ github.workspace }}
+      shell: bash
     - name: Start FusionAuth
       run: docker compose up -d # -d in background
       shell: bash
@@ -51,7 +62,7 @@ runs:
         DATABASE_PASSWORD: ${{ inputs.DATABASE_PASSWORD }}
         FUSIONAUTH_APP_MEMORY: ${{ inputs.FUSIONAUTH_APP_MEMORY }}
         FUSIONAUTH_APP_RUNTIME_MODE: ${{ inputs.FUSIONAUTH_APP_RUNTIME_MODE }}
-        FUSIONAUTH_APP_KICKSTART_FILE: ${{ inputs.FUSIONAUTH_APP_KICKSTART_FILE }}
+        FUSIONAUTH_APP_KICKSTART_FILE: /usr/local/fusionauth/kickstart/kickstart.json
         OPENSEARCH_JAVA_OPTS: ${{ inputs.OPENSEARCH_JAVA_OPTS }}
         FUSIONAUTH_VERSION: ${{ inputs.FUSIONAUTH_VERSION }}
 
