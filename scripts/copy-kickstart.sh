@@ -16,4 +16,9 @@ if [[ -z "$FUSIONAUTH_APP_KICKSTART_FILENAME" ]]; then
     exit 0
 fi
 
+if [[ "$FUSIONAUTH_APP_KICKSTART_FILENAME" == "kickstart.json" ]]; then
+    # we're fine
+    exit 0
+fi
+
 cp kickstart/$FUSIONAUTH_APP_KICKSTART_FILENAME kickstart/kickstart.json
