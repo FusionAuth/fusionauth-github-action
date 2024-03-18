@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # see if there's FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH
-# if not, return 0
+# if not, exit 0
 
 if [[ -z "$FUSIONAUTH_APP_KICKSTART_DIRECTORY_PATH" ]]; then
     exit 0
