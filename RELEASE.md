@@ -31,3 +31,5 @@ Then go to https://github.com/FusionAuth/fusionauth-github-action/releases and d
 Release it.
 
 https://github.com/marketplace/actions/fusionauth-action should be updated very quickly.
+
+More details: https://docs.github.com/en/actions/creating-actions/releasing-and-maintaining-actions
