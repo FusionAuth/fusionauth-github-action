@@ -75,7 +75,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Start FusionAuth
-        uses: fusionauth/fusionauth-github-action@1.0.1
+        uses: fusionauth/fusionauth-github-action@v1
         with:
           FUSIONAUTH_VERSION: "latest" # Optional: provide FusionAuth version number otherwise it defaults to latest
 
