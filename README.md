@@ -52,7 +52,7 @@ None
 
 This Action uses no secrets. The FusionAuth instance is temporary and uses the standard example usernames and passwords.
 
-For your tests, you can use users `admin@example.com` and `richard@example.com`, with password `password`.
+For your tests, you can use users `admin@example.com` and `richard@example.com`, with password `password` if you use the default kickstart. If you use a custom kickstart, then use the users defined in that.
 
 ## Example of use
 
@@ -75,8 +75,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Start FusionAuth
-        uses: fusionauth/fusionauth-github-action@main
-        #uses: fusionauth/fusionauth-github-action@v1
+        uses: fusionauth/fusionauth-github-action@1.0.1
         with:
           FUSIONAUTH_VERSION: "latest" # Optional: provide FusionAuth version number otherwise it defaults to latest
 
