@@ -20,10 +20,10 @@ Then, move the `v1` tag to the latest:
 git tag --force v1
 ```
 
-Then push up the tags:
+Then push up the tags (using -f because of the v1 tag already existing):
 
 ```
-git push origin main --tags
+git push origin main --tags -f
 ```
 
 Then go to https://github.com/FusionAuth/fusionauth-github-action/releases and draft a new release. Make sure you publish tto the marketplace and pick the specific tag (`1.0.5`, *not* `v1`) to release.
