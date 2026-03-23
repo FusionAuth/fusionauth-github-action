@@ -70,6 +70,7 @@ services:
       # SEARCH_SERVERS: http://search:9200
       SEARCH_TYPE: database
       FUSIONAUTH_APP_KICKSTART_FILE: ${FUSIONAUTH_APP_KICKSTART_FILE}
+      FUSIONAUTH_APP_INSTALLATION_SOURCE: fusionauth-github-action
     networks:
       - db_net
       # - search_net
